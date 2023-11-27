@@ -11,7 +11,7 @@
 		"homepage": "https://github.com/ArkoSammy12",
 		"sources": "https://github.com/ArkoSammy12/creeper-healing"
 	},
-	"license": "CC0-1.0",
+	"license": "LGPL-3.0-only",
 	"icon": "assets/hypersomnia/icon.png",
 	"environment": "*",
 	"entrypoints": {
