@@ -1,0 +1,13 @@
+{
+	"required": true,
+	"package": "xd.arkosammy.mixin",
+	"compatibilityLevel": "JAVA_17",
+	"mixins": [
+		"PhantomSpawnerMixin",
+		"PhantomTargetMixin",
+		"ServerPlayerEntityMixin"
+	],
+	"injectors": {
+		"defaultRequire": 1
+	}
+}
