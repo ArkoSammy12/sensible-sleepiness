@@ -1,4 +1,4 @@
-package xd.arkosammy.mixin;
+package xd.arkosammy;
 
 public interface InsomniaFieldMixinInterface {
 

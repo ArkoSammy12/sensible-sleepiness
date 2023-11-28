@@ -2,8 +2,8 @@
 	"schemaVersion": 1,
 	"id": "hypersomnia",
 	"version": "${version}",
-	"name": "Hypersomnia",
-	"description": "A mod to allow players on servers to individually toggle the insomnia rule. ",
+	"name": "Sensible Sleepiness",
+	"description": " A mod that adds further per-player customization for Phantom's behavior.",
 	"authors": [
 		"ArkoSammy12"
 	],
@@ -12,11 +12,11 @@
 		"sources": "https://github.com/ArkoSammy12/creeper-healing"
 	},
 	"license": "LGPL-3.0-only",
-	"icon": "assets/hypersomnia/icon.png",
+	"icon": "assets/sensible-sleepiness/icon.png",
 	"environment": "*",
 	"entrypoints": {
 		"server": [
-			"xd.arkosammy.Hypersomnia"
+			"xd.arkosammy.SensibleSleepiness"
 		]
 	},
 	"mixins": [

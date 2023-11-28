@@ -7,9 +7,10 @@ import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+import xd.arkosammy.InsomniaFieldMixinInterface;
 
 @Mixin(ServerPlayerEntity.class)
-public abstract class ServerPlayerEntityMixin implements InsomniaFieldMixinInterface{
+public abstract class ServerPlayerEntityMixin implements InsomniaFieldMixinInterface {
 
     @Unique
     private boolean isInsomniaEnabled;

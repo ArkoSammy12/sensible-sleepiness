@@ -9,7 +9,7 @@ import com.mojang.brigadier.tree.LiteralCommandNode;
 import net.minecraft.server.command.CommandManager;
 import net.minecraft.server.command.ServerCommandSource;
 import net.minecraft.text.Text;
-import xd.arkosammy.mixin.InsomniaFieldMixinInterface;
+import xd.arkosammy.InsomniaFieldMixinInterface;
 
 public abstract class InsomniaToggle {
 

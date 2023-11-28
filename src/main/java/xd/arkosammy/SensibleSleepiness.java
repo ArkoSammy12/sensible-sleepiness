@@ -6,10 +6,9 @@ import net.fabricmc.fabric.api.command.v2.CommandRegistrationCallback;
 import net.fabricmc.fabric.api.entity.event.v1.ServerPlayerEvents;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import xd.arkosammy.commands.HypersomniaCommandManager;
-import xd.arkosammy.mixin.InsomniaFieldMixinInterface;
+import xd.arkosammy.commands.SensibleSleepinessCommandManager;
 
-public class Hypersomnia implements DedicatedServerModInitializer {
+public class SensibleSleepiness implements DedicatedServerModInitializer {
 
     public static final Logger LOGGER = LoggerFactory.getLogger("hypersomnia");
 
@@ -17,7 +16,7 @@ public class Hypersomnia implements DedicatedServerModInitializer {
 	public void onInitializeServer() {
 
 		ServerPlayerEvents.COPY_FROM.register(((oldPlayer, newPlayer, alive) -> ((InsomniaFieldMixinInterface) newPlayer).hypersomnia$setInsomnia(((InsomniaFieldMixinInterface)oldPlayer).hypersomnia$isInsomniaEnabled())));
-		CommandRegistrationCallback.EVENT.register(HypersomniaCommandManager::registerCommands);
+		CommandRegistrationCallback.EVENT.register(SensibleSleepinessCommandManager::registerCommands);
 
 	}
 }
