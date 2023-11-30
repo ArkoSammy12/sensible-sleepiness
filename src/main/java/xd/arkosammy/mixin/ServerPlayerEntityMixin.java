@@ -15,11 +15,11 @@ public abstract class ServerPlayerEntityMixin implements InsomniaFieldMixinInter
     @Unique
     private boolean isInsomniaEnabled;
 
-    public boolean hypersomnia$isInsomniaEnabled(){
+    public boolean sensible_sleepiness$isInsomniaEnabled(){
         return this.isInsomniaEnabled;
     }
 
-    public void hypersomnia$setInsomnia(boolean insomnia){
+    public void sensible_sleepiness$setInsomnia(boolean insomnia){
         this.isInsomniaEnabled = insomnia;
     }
 

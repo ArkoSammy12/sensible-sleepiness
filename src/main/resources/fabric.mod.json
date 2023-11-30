@@ -1,6 +1,6 @@
 {
 	"schemaVersion": 1,
-	"id": "hypersomnia",
+	"id": "sensible-sleepiness",
 	"version": "${version}",
 	"name": "Sensible Sleepiness",
 	"description": " A mod that adds further per-player customization for Phantom's behavior.",
@@ -9,7 +9,7 @@
 	],
 	"contact": {
 		"homepage": "https://github.com/ArkoSammy12",
-		"sources": "https://github.com/ArkoSammy12/creeper-healing"
+		"sources": "https://github.com/ArkoSammy12/sensible-sleepiness"
 	},
 	"license": "LGPL-3.0-only",
 	"icon": "assets/sensible-sleepiness/icon.png",
@@ -20,7 +20,7 @@
 		]
 	},
 	"mixins": [
-		"hypersomnia.mixins.json"
+		"sensible-sleepiness.mixins.json"
 	],
 	"depends": {
 		"fabricloader": ">=0.14.24",

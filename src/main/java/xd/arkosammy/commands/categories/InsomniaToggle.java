@@ -39,7 +39,7 @@ public abstract class InsomniaToggle {
 
     private static int setInsomniaCommand(CommandContext<ServerCommandSource> ctx) throws CommandSyntaxException {
 
-        ((InsomniaFieldMixinInterface) ctx.getSource().getPlayerOrThrow()).hypersomnia$setInsomnia(BoolArgumentType.getBool(ctx, "value"));
+        ((InsomniaFieldMixinInterface) ctx.getSource().getPlayerOrThrow()).sensible_sleepiness$setInsomnia(BoolArgumentType.getBool(ctx, "value"));
         ctx.getSource().getPlayerOrThrow().sendMessage(Text.literal("Insomnia has been: " + (BoolArgumentType.getBool(ctx, "value") ? "enabled" : "disabled" )));
         return Command.SINGLE_SUCCESS;
 
@@ -47,7 +47,7 @@ public abstract class InsomniaToggle {
 
     private static int getIsInsomniaEnabledCommand(CommandContext<ServerCommandSource> ctx) throws CommandSyntaxException {
 
-        ctx.getSource().getPlayerOrThrow().sendMessage(Text.literal("Insomnia is currently " + (((InsomniaFieldMixinInterface)ctx.getSource().getPlayerOrThrow()).hypersomnia$isInsomniaEnabled() ? "enabled" : "disabled")      ));
+        ctx.getSource().getPlayerOrThrow().sendMessage(Text.literal("Insomnia is currently " + (((InsomniaFieldMixinInterface)ctx.getSource().getPlayerOrThrow()).sensible_sleepiness$isInsomniaEnabled() ? "enabled" : "disabled")      ));
         return Command.SINGLE_SUCCESS;
 
     }

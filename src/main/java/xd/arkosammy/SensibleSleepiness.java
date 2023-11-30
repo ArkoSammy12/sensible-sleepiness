@@ -10,12 +10,12 @@ import xd.arkosammy.commands.SensibleSleepinessCommandManager;
 
 public class SensibleSleepiness implements DedicatedServerModInitializer {
 
-    public static final Logger LOGGER = LoggerFactory.getLogger("hypersomnia");
+    public static final Logger LOGGER = LoggerFactory.getLogger("sensible-sleepiness");
 
 	@Override
 	public void onInitializeServer() {
 
-		ServerPlayerEvents.COPY_FROM.register(((oldPlayer, newPlayer, alive) -> ((InsomniaFieldMixinInterface) newPlayer).hypersomnia$setInsomnia(((InsomniaFieldMixinInterface)oldPlayer).hypersomnia$isInsomniaEnabled())));
+		ServerPlayerEvents.COPY_FROM.register(((oldPlayer, newPlayer, alive) -> ((InsomniaFieldMixinInterface) newPlayer).sensible_sleepiness$setInsomnia(((InsomniaFieldMixinInterface)oldPlayer).sensible_sleepiness$isInsomniaEnabled())));
 		CommandRegistrationCallback.EVENT.register(SensibleSleepinessCommandManager::registerCommands);
 
 	}

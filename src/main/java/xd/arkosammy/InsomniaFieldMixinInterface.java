@@ -2,8 +2,8 @@ package xd.arkosammy;
 
 public interface InsomniaFieldMixinInterface {
 
-    boolean hypersomnia$isInsomniaEnabled();
+    boolean sensible_sleepiness$isInsomniaEnabled();
 
-    void hypersomnia$setInsomnia(boolean insomnia);
+    void sensible_sleepiness$setInsomnia(boolean insomnia);
 
 }

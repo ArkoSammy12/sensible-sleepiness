@@ -22,7 +22,7 @@ loom {
     splitEnvironmentSourceSets()
 
 	mods {
-		"hypersomnia" {
+		"sensible-sleepiness" {
 			sourceSet sourceSets.main
 			sourceSet sourceSets.client
 		}

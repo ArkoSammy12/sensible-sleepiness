@@ -14,7 +14,7 @@ import xd.arkosammy.InsomniaFieldMixinInterface;
 public abstract class PhantomSpawnerMixin {
     @Inject(method = "spawn", at = @At(value = "INVOKE", target = "Lnet/minecraft/server/network/ServerPlayerEntity;isSpectator()Z"), cancellable = true)
     public void onPhantomAttemptSpawn(ServerWorld world, boolean spawnMonsters, boolean spawnAnimals, CallbackInfoReturnable<Integer> cir, @Local int i, @Local ServerPlayerEntity serverPlayerEntity) {
-        if(!((InsomniaFieldMixinInterface)serverPlayerEntity).hypersomnia$isInsomniaEnabled()) {
+        if(!((InsomniaFieldMixinInterface)serverPlayerEntity).sensible_sleepiness$isInsomniaEnabled()) {
             cir.setReturnValue(i);
         }
     }
