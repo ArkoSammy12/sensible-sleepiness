@@ -77,6 +77,7 @@ public abstract class SleepyModeCommands {
 
     private static int getSleepyModeCommand(CommandContext<ServerCommandSource> ctx) throws CommandSyntaxException {
 
+        System.out.println("Sleepy mode currently set to: " + ((SleepyModeInterface)ctx.getSource().getPlayerOrThrow()).sensible_sleepiness$getSleepyMode().getDisplayName());
         ctx.getSource().getPlayerOrThrow().sendMessage(Text.literal("Sleepy mode currently set to: " + ((SleepyModeInterface)ctx.getSource().getPlayerOrThrow()).sensible_sleepiness$getSleepyMode().getDisplayName()));
         return Command.SINGLE_SUCCESS;
 
