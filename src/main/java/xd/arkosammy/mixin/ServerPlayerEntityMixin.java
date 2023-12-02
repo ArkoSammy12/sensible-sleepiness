@@ -14,7 +14,7 @@ import xd.arkosammy.SleepyMode;
 public abstract class ServerPlayerEntityMixin implements SleepyModeInterface {
 
     @Unique
-    private SleepyMode sleepyMode;
+    private SleepyMode sleepyMode = SleepyMode.INSOMNIA;
 
     public SleepyMode sensible_sleepiness$getSleepyMode(){
         return this.sleepyMode;

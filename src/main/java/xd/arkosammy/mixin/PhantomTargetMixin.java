@@ -13,7 +13,7 @@ import java.util.List;
 public abstract class PhantomTargetMixin {
     @ModifyVariable(method = "canStart()Z", at = @At("STORE"), index = 1)
     private List<PlayerEntity> modifyPhantomTargets(List<PlayerEntity> targets){
-        targets.removeIf(player -> !((SleepyModeInterface) player).sensible_sleepiness$getSleepyMode().equals(SleepyMode.HYPERSOMNIA));
+        targets.removeIf(player -> ((SleepyModeInterface) player).sensible_sleepiness$getSleepyMode() == SleepyMode.HYPERSOMNIA);
         return targets;
     }
 
