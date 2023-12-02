@@ -4,7 +4,8 @@ import net.minecraft.entity.player.PlayerEntity;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.ModifyVariable;
-import xd.arkosammy.InsomniaFieldMixinInterface;
+import xd.arkosammy.SleepyMode;
+import xd.arkosammy.SleepyModeInterface;
 
 import java.util.List;
 
@@ -12,7 +13,7 @@ import java.util.List;
 public abstract class PhantomTargetMixin {
     @ModifyVariable(method = "canStart()Z", at = @At("STORE"), index = 1)
     private List<PlayerEntity> modifyPhantomTargets(List<PlayerEntity> targets){
-        targets.removeIf(player -> !((InsomniaFieldMixinInterface) player).sensible_sleepiness$isInsomniaEnabled());
+        targets.removeIf(player -> !((SleepyModeInterface) player).sensible_sleepiness$getSleepyMode().equals(SleepyMode.HYPERSOMNIA));
         return targets;
     }
 

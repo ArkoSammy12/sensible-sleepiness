@@ -7,30 +7,32 @@ import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
-import xd.arkosammy.InsomniaFieldMixinInterface;
+import xd.arkosammy.SleepyModeInterface;
+import xd.arkosammy.SleepyMode;
 
 @Mixin(ServerPlayerEntity.class)
-public abstract class ServerPlayerEntityMixin implements InsomniaFieldMixinInterface {
+public abstract class ServerPlayerEntityMixin implements SleepyModeInterface {
 
     @Unique
-    private boolean isInsomniaEnabled;
+    private SleepyMode sleepyMode;
 
-    public boolean sensible_sleepiness$isInsomniaEnabled(){
-        return this.isInsomniaEnabled;
+    public SleepyMode sensible_sleepiness$getSleepyMode(){
+        return this.sleepyMode;
     }
 
-    public void sensible_sleepiness$setInsomnia(boolean insomnia){
-        this.isInsomniaEnabled = insomnia;
+    public void sensible_sleepiness$setSleepyMode(SleepyMode sleepyMode){
+        this.sleepyMode = sleepyMode;
     }
 
     @Inject(method = "writeCustomDataToNbt", at = @At("RETURN"))
     public void writeCustomDataToNbt (NbtCompound tag, CallbackInfo info) {
-        tag.putBoolean("isInsomniaEnabled", isInsomniaEnabled);
+        tag.putString("sleepyMode", sleepyMode.getIdentifier());
     }
 
     @Inject(method = "readCustomDataFromNbt", at = @At("RETURN"))
     public void readCustomDataFromNbt(NbtCompound tag, CallbackInfo info) {
-        isInsomniaEnabled = tag.getBoolean("isInsomniaEnabled");
+        String sleepyModeString = tag.getString("sleepyMode");
+        this.sleepyMode = SleepyMode.fromString(sleepyModeString);
     }
 
 }
