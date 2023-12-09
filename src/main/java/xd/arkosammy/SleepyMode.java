@@ -22,17 +22,12 @@ public enum SleepyMode {
     }
 
     public static SleepyMode fromString(String s){
-
         for(SleepyMode sleepyMode : SleepyMode.values()){
-
             if(sleepyMode.getIdentifier().equals(s)){
                 return sleepyMode;
             }
-
         }
-
         throw new IllegalArgumentException();
-
     }
 
 }
