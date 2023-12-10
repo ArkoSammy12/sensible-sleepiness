@@ -11,7 +11,7 @@ import java.util.List;
 
 @Mixin(targets = "net.minecraft.entity.mob.PhantomEntity$FindTargetGoal")
 public abstract class PhantomTargetMixin {
-    @ModifyVariable(method = "canStart()Z", at = @At("STORE"), index = 1)
+    @ModifyVariable(method = "canStart()Z", at = @At("STORE"), ordinal = 0)
     private List<PlayerEntity> modifyPhantomTargets(List<PlayerEntity> targets){
         targets.removeIf(player -> ((SleepyModeInterface) player).sensible_sleepiness$getSleepyMode() == SleepyMode.HYPERSOMNIA);
         return targets;
