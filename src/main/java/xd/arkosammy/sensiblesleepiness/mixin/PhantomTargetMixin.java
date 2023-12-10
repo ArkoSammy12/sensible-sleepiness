@@ -1,11 +1,11 @@
-package xd.arkosammy.mixin;
+package xd.arkosammy.sensiblesleepiness.mixin;
 
 import net.minecraft.entity.player.PlayerEntity;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.ModifyVariable;
-import xd.arkosammy.SleepyMode;
-import xd.arkosammy.SleepyModeInterface;
+import xd.arkosammy.sensiblesleepiness.SleepyMode;
+import xd.arkosammy.sensiblesleepiness.SleepyModeInterface;
 
 import java.util.List;
 

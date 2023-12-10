@@ -1,15 +1,14 @@
-package xd.arkosammy.commands;
+package xd.arkosammy.sensiblesleepiness.commands;
 
 import com.mojang.brigadier.Command;
-import com.mojang.brigadier.arguments.BoolArgumentType;
 import com.mojang.brigadier.context.CommandContext;
 import com.mojang.brigadier.exceptions.CommandSyntaxException;
 import com.mojang.brigadier.tree.LiteralCommandNode;
 import net.minecraft.server.command.CommandManager;
 import net.minecraft.server.command.ServerCommandSource;
 import net.minecraft.text.Text;
-import xd.arkosammy.SleepyMode;
-import xd.arkosammy.SleepyModeInterface;
+import xd.arkosammy.sensiblesleepiness.SleepyMode;
+import xd.arkosammy.sensiblesleepiness.SleepyModeInterface;
 
 public abstract class SleepyModeCommands {
 

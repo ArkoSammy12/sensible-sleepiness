@@ -1,4 +1,4 @@
-package xd.arkosammy.commands;
+package xd.arkosammy.sensiblesleepiness.commands;
 
 import com.mojang.brigadier.CommandDispatcher;
 import com.mojang.brigadier.tree.LiteralCommandNode;

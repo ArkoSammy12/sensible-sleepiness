@@ -1,4 +1,4 @@
-package xd.arkosammy.mixin;
+package xd.arkosammy.sensiblesleepiness.mixin;
 
 import com.llamalad7.mixinextras.injector.ModifyReceiver;
 import com.llamalad7.mixinextras.sugar.Local;
@@ -15,8 +15,8 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.ModifyVariable;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
-import xd.arkosammy.SleepyMode;
-import xd.arkosammy.SleepyModeInterface;
+import xd.arkosammy.sensiblesleepiness.SleepyMode;
+import xd.arkosammy.sensiblesleepiness.SleepyModeInterface;
 
 @Mixin(PhantomSpawner.class)
 public abstract class PhantomSpawnerMixin {

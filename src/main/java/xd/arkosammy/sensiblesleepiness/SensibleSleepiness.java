@@ -1,4 +1,4 @@
-package xd.arkosammy;
+package xd.arkosammy.sensiblesleepiness;
 
 import net.fabricmc.api.DedicatedServerModInitializer;
 
@@ -6,7 +6,7 @@ import net.fabricmc.fabric.api.command.v2.CommandRegistrationCallback;
 import net.fabricmc.fabric.api.entity.event.v1.ServerPlayerEvents;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import xd.arkosammy.commands.SensibleSleepinessCommandManager;
+import xd.arkosammy.sensiblesleepiness.commands.SensibleSleepinessCommandManager;
 
 public class SensibleSleepiness implements DedicatedServerModInitializer {
 

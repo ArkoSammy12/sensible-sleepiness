@@ -1,4 +1,4 @@
-package xd.arkosammy;
+package xd.arkosammy.sensiblesleepiness;
 
 public interface SleepyModeInterface {
 

@@ -16,7 +16,7 @@
 	"environment": "*",
 	"entrypoints": {
 		"server": [
-			"xd.arkosammy.SensibleSleepiness"
+			"xd.arkosammy.sensiblesleepiness.SensibleSleepiness"
 		]
 	},
 	"mixins": [
