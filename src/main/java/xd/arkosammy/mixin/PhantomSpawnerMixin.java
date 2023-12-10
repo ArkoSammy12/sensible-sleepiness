@@ -5,6 +5,7 @@ import com.llamalad7.mixinextras.sugar.Local;
 import net.minecraft.entity.mob.PhantomEntity;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.server.world.ServerWorld;
+import net.minecraft.stat.Stats;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.random.Random;
 import net.minecraft.world.spawner.PhantomSpawner;
@@ -47,12 +48,13 @@ public abstract class PhantomSpawnerMixin {
     }
 
     @ModifyVariable(method = "spawn", at = @At("STORE"), ordinal = 3)
-    private int modifyPhantomSpawnAmount(int value, @Local int j, @Local Random random){
+    private int modifyPhantomSpawnAmount(int value, @Local Random random){
 
         ServerPlayerEntity serverPlayerEntity = currentServerPlayerEntity.get();
         if(serverPlayerEntity == null || ((SleepyModeInterface)serverPlayerEntity).sensible_sleepiness$getSleepyMode() != SleepyMode.PARASOMNIA){
             return value;
         }
+        int j = MathHelper.clamp(serverPlayerEntity.getStatHandler().getStat(Stats.CUSTOM.getOrCreateStat(Stats.TIME_SINCE_REST)), 1, Integer.MAX_VALUE);
         int daysSinceLastSlept = j / 24000;
         int rand = random.nextInt(daysSinceLastSlept);
         if(rand == 1){
@@ -63,12 +65,13 @@ public abstract class PhantomSpawnerMixin {
     }
 
     @Inject(method = "spawn", at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/mob/PhantomEntity;refreshPositionAndAngles(Lnet/minecraft/util/math/BlockPos;FF)V"))
-    private void modifyPhantomSize(ServerWorld world, boolean spawnMonsters, boolean spawnAnimals, CallbackInfoReturnable<Integer> cir, @Local(ordinal = 0) int j, @Local PhantomEntity phantomEntity){
+    private void modifyPhantomSize(ServerWorld world, boolean spawnMonsters, boolean spawnAnimals, CallbackInfoReturnable<Integer> cir, @Local PhantomEntity phantomEntity){
 
         ServerPlayerEntity serverPlayerEntity = currentServerPlayerEntity.get();
         if(serverPlayerEntity == null || ((SleepyModeInterface)serverPlayerEntity).sensible_sleepiness$getSleepyMode() != SleepyMode.PARASOMNIA) {
             return;
         }
+        int j = MathHelper.clamp(serverPlayerEntity.getStatHandler().getStat(Stats.CUSTOM.getOrCreateStat(Stats.TIME_SINCE_REST)), 1, Integer.MAX_VALUE);
         int daysSinceLastSlept = j / 24000;
         int oldPhantomSize = phantomEntity.getPhantomSize();
         int newPhantomSize = MathHelper.clamp(oldPhantomSize * daysSinceLastSlept, 1, 5);
