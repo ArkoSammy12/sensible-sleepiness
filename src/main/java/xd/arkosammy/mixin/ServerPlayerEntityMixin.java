@@ -16,10 +16,12 @@ public abstract class ServerPlayerEntityMixin implements SleepyModeInterface {
     @Unique
     private SleepyMode sleepyMode = SleepyMode.INSOMNIA;
 
+    @Unique
     public SleepyMode sensible_sleepiness$getSleepyMode(){
         return this.sleepyMode;
     }
 
+    @Unique
     public void sensible_sleepiness$setSleepyMode(SleepyMode sleepyMode){
         this.sleepyMode = sleepyMode;
     }
