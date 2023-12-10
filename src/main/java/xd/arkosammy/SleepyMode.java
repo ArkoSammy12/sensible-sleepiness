@@ -27,7 +27,7 @@ public enum SleepyMode {
                 return sleepyMode;
             }
         }
-        throw new IllegalArgumentException();
+        return SleepyMode.INSOMNIA;
     }
 
 }
