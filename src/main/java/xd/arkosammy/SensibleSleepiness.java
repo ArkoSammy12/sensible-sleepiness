@@ -17,6 +17,7 @@ public class SensibleSleepiness implements DedicatedServerModInitializer {
 
 		ServerPlayerEvents.COPY_FROM.register(((oldPlayer, newPlayer, alive) -> ((SleepyModeInterface) newPlayer).sensible_sleepiness$setSleepyMode(((SleepyModeInterface)oldPlayer).sensible_sleepiness$getSleepyMode())));
 		CommandRegistrationCallback.EVENT.register(SensibleSleepinessCommandManager::registerCommands);
+		LOGGER.info("Thanks to Baconbacon123 for coming up with the name of this mod!");
 
 	}
 }
