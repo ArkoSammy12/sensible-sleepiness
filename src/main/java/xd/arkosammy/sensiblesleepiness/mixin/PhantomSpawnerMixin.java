@@ -31,9 +31,8 @@ public abstract class PhantomSpawnerMixin {
     }
 
     @ModifyVariable(method = "spawn", at = @At("STORE"), ordinal = 1)
-    private int modifyProbabilityBound(int value){
+    private int modifyProbabilityBound(int value, @Local ServerPlayerEntity serverPlayerEntity){
 
-        ServerPlayerEntity serverPlayerEntity = currentServerPlayerEntity.get();
         if(serverPlayerEntity == null){
             return value;
         }
@@ -41,17 +40,16 @@ public abstract class PhantomSpawnerMixin {
             return 1;
         } else if (((SleepyModeInterface)serverPlayerEntity).sensible_sleepiness$getSleepyMode() == SleepyMode.PARASOMNIA){
             int daysSinceLastSlept = value / 24000;
-            int newProbability = 72000 + (2500 * daysSinceLastSlept - 1);
+            int newProbability = 72000 + (1500 * daysSinceLastSlept - 1);
             return newProbability;
         }
         return value;
     }
 
     @ModifyVariable(method = "spawn", at = @At("STORE"), ordinal = 3)
-    private int modifyPhantomSpawnAmount(int value, @Local Random random){
+    private int modifyPhantomSpawnAmount(int value, @Local Random random, @Local ServerPlayerEntity serverPlayerEntity){
 
-        ServerPlayerEntity serverPlayerEntity = currentServerPlayerEntity.get();
-        if(serverPlayerEntity == null || ((SleepyModeInterface)serverPlayerEntity).sensible_sleepiness$getSleepyMode() != SleepyMode.PARASOMNIA){
+        if(((SleepyModeInterface)serverPlayerEntity).sensible_sleepiness$getSleepyMode() != SleepyMode.PARASOMNIA){
             return value;
         }
         int j = MathHelper.clamp(serverPlayerEntity.getStatHandler().getStat(Stats.CUSTOM.getOrCreateStat(Stats.TIME_SINCE_REST)), 1, Integer.MAX_VALUE);
@@ -64,17 +62,17 @@ public abstract class PhantomSpawnerMixin {
         return value;
     }
 
-    @Inject(method = "spawn", at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/mob/PhantomEntity;refreshPositionAndAngles(Lnet/minecraft/util/math/BlockPos;FF)V"))
-    private void modifyPhantomSize(ServerWorld world, boolean spawnMonsters, boolean spawnAnimals, CallbackInfoReturnable<Integer> cir, @Local PhantomEntity phantomEntity){
 
-        ServerPlayerEntity serverPlayerEntity = currentServerPlayerEntity.get();
-        if(serverPlayerEntity == null || ((SleepyModeInterface)serverPlayerEntity).sensible_sleepiness$getSleepyMode() != SleepyMode.PARASOMNIA) {
+    @Inject(method = "spawn", at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/mob/PhantomEntity;initialize(Lnet/minecraft/world/ServerWorldAccess;Lnet/minecraft/world/LocalDifficulty;Lnet/minecraft/entity/SpawnReason;Lnet/minecraft/entity/EntityData;Lnet/minecraft/nbt/NbtCompound;)Lnet/minecraft/entity/EntityData;", shift = At.Shift.AFTER))
+    private void modifyPhantomSize(ServerWorld world, boolean spawnMonsters, boolean spawnAnimals, CallbackInfoReturnable<Integer> cir, @Local PhantomEntity phantomEntity, @Local ServerPlayerEntity serverPlayerEntity){
+
+        if(((SleepyModeInterface)serverPlayerEntity).sensible_sleepiness$getSleepyMode() != SleepyMode.PARASOMNIA) {
             return;
         }
         int j = MathHelper.clamp(serverPlayerEntity.getStatHandler().getStat(Stats.CUSTOM.getOrCreateStat(Stats.TIME_SINCE_REST)), 1, Integer.MAX_VALUE);
         int daysSinceLastSlept = j / 24000;
         int oldPhantomSize = phantomEntity.getPhantomSize();
-        int newPhantomSize = MathHelper.clamp(oldPhantomSize * daysSinceLastSlept, 1, 5);
+        int newPhantomSize = MathHelper.clamp(oldPhantomSize * daysSinceLastSlept, 1, 15);
         phantomEntity.setPhantomSize(newPhantomSize);
 
     }
