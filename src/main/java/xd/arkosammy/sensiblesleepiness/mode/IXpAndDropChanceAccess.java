@@ -1,4 +1,4 @@
-package xd.arkosammy.sensiblesleepiness;
+package xd.arkosammy.sensiblesleepiness.mode;
 
 public interface IXpAndDropChanceAccess {
 

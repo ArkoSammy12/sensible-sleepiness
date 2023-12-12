@@ -7,20 +7,14 @@ import com.mojang.brigadier.tree.LiteralCommandNode;
 import net.minecraft.server.command.CommandManager;
 import net.minecraft.server.command.ServerCommandSource;
 import net.minecraft.text.Text;
-import xd.arkosammy.sensiblesleepiness.SleepyMode;
-import xd.arkosammy.sensiblesleepiness.ISleepyModeAccess;
+import xd.arkosammy.sensiblesleepiness.mode.SleepyMode;
+import xd.arkosammy.sensiblesleepiness.mode.ISleepyModeAccess;
 
 public abstract class SleepyModeCommands {
 
     private SleepyModeCommands(){}
 
-     static void register(LiteralCommandNode<ServerCommandSource> sensibleSleepinessNode){
-
-        //Sleepy mode
-        LiteralCommandNode<ServerCommandSource> sleepyModeNode = CommandManager
-                .literal("mode")
-                .executes(SleepyModeCommands::getSleepyModeCommand)
-                .build();
+     static void register(LiteralCommandNode<ServerCommandSource> sleepyModeNode){
 
         //Insomnia node
         LiteralCommandNode<ServerCommandSource> insomniaNode = CommandManager
@@ -39,9 +33,6 @@ public abstract class SleepyModeCommands {
                 .literal("parasomnia")
                 .executes(SleepyModeCommands::setParasomniaCommand)
                 .build();
-
-        //Root node connection
-        sensibleSleepinessNode.addChild(sleepyModeNode);
 
         //Sleepy mode nodes
         sleepyModeNode.addChild(insomniaNode);
@@ -70,13 +61,6 @@ public abstract class SleepyModeCommands {
 
         ((ISleepyModeAccess)ctx.getSource().getPlayerOrThrow()).sensible_sleepiness$setSleepyMode(SleepyMode.PARASOMNIA);
         ctx.getSource().getPlayerOrThrow().sendMessage(Text.literal("Sleepy mode has been set to: " + SleepyMode.PARASOMNIA.getDisplayName()));
-        return Command.SINGLE_SUCCESS;
-
-    }
-
-    private static int getSleepyModeCommand(CommandContext<ServerCommandSource> ctx) throws CommandSyntaxException {
-
-        ctx.getSource().getPlayerOrThrow().sendMessage(Text.literal("Sleepy mode currently set to: " + ((ISleepyModeAccess)ctx.getSource().getPlayerOrThrow()).sensible_sleepiness$getSleepyMode().getDisplayName()));
         return Command.SINGLE_SUCCESS;
 
     }

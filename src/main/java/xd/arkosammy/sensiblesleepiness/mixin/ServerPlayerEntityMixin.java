@@ -7,8 +7,8 @@ import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
-import xd.arkosammy.sensiblesleepiness.ISleepyModeAccess;
-import xd.arkosammy.sensiblesleepiness.SleepyMode;
+import xd.arkosammy.sensiblesleepiness.mode.ISleepyModeAccess;
+import xd.arkosammy.sensiblesleepiness.mode.SleepyMode;
 
 @Mixin(ServerPlayerEntity.class)
 public abstract class ServerPlayerEntityMixin implements ISleepyModeAccess {

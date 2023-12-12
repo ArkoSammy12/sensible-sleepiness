@@ -1,4 +1,4 @@
-package xd.arkosammy.sensiblesleepiness;
+package xd.arkosammy.sensiblesleepiness.mode;
 
 public enum SleepyMode {
     PARASOMNIA("sensible-sleepiness:parasomnia", "Parasomnia"),

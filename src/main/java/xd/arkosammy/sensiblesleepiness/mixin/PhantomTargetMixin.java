@@ -4,8 +4,8 @@ import net.minecraft.entity.player.PlayerEntity;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.ModifyVariable;
-import xd.arkosammy.sensiblesleepiness.SleepyMode;
-import xd.arkosammy.sensiblesleepiness.ISleepyModeAccess;
+import xd.arkosammy.sensiblesleepiness.mode.SleepyMode;
+import xd.arkosammy.sensiblesleepiness.mode.ISleepyModeAccess;
 
 import java.util.List;
 

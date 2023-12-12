@@ -13,9 +13,9 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.ModifyVariable;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
-import xd.arkosammy.sensiblesleepiness.IXpAndDropChanceAccess;
-import xd.arkosammy.sensiblesleepiness.SleepyMode;
-import xd.arkosammy.sensiblesleepiness.ISleepyModeAccess;
+import xd.arkosammy.sensiblesleepiness.mode.IXpAndDropChanceAccess;
+import xd.arkosammy.sensiblesleepiness.mode.SleepyMode;
+import xd.arkosammy.sensiblesleepiness.mode.ISleepyModeAccess;
 
 @Mixin(PhantomSpawner.class)
 public abstract class PhantomSpawnerMixin {
@@ -42,7 +42,7 @@ public abstract class PhantomSpawnerMixin {
         int daysSinceLastSlept = j / 24000;
         int rand = random.nextInt(daysSinceLastSlept);
         if(rand == 1){
-            int n = random.nextInt(1) + 1;
+            int n = random.nextInt(2) + 1;
             value = Math.max(value - n, 1);
         }
         return value;
