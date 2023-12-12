@@ -17,7 +17,9 @@ This mode prevents Phantoms from spawning around the player with the mode enable
 
 `/sensible-sleepiness mode parasomnia`
 
-This mode increases the difficulty of Phantoms by making them bigger and deal more damage the more nights the player has gone without sleeping. The period of grace becomes only 1 night. Though there is a chance that Phantoms will appear in smaller groups, this chance will only decrease the more nights go by without sleeping.
+This mode increases the difficulty of Phantoms by making them bigger and deal more damage the more nights the player has gone without sleeping. The period of grace becomes shorter. Though there is a chance that Phantoms will appear in smaller groups, this chance will only decrease the more nights go by without sleeping. 
+
+To compensate for the added difficulty, Phantoms spawned for players with this mode enabled will have higher chances to drop more experience, and better chances to drop loot upon death.
 
 You can view your current sleepy mode by running
 `/sensible-sleepiness mode`.
