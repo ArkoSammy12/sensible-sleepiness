@@ -15,7 +15,7 @@ This mode prevents Phantoms from spawning around the player with the mode enable
 
 ## Parasomnia mode
 
-`/sleepy-mode mode parasomnia`
+`/sleepy-mode parasomnia`
 
 This mode increases the difficulty of Phantoms by making them bigger and deal more damage the more nights the player has gone without sleeping. The period of grace becomes shorter. Though there is a chance that Phantoms will appear in smaller groups, this chance will only decrease the more nights go by without sleeping. 
 
