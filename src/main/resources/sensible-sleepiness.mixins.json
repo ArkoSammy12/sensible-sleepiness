@@ -5,7 +5,8 @@
   "mixins": [
     "PhantomSpawnerMixin",
     "PhantomTargetMixin",
-    "ServerPlayerEntityMixin"
+    "ServerPlayerEntityMixin",
+    "MobEntityMixin"
   ],
   "injectors": {
     "defaultRequire": 1

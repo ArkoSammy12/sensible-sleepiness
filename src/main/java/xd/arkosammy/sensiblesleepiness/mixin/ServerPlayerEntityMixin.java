@@ -7,11 +7,11 @@ import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
-import xd.arkosammy.sensiblesleepiness.SleepyModeInterface;
+import xd.arkosammy.sensiblesleepiness.ISleepyModeAccess;
 import xd.arkosammy.sensiblesleepiness.SleepyMode;
 
 @Mixin(ServerPlayerEntity.class)
-public abstract class ServerPlayerEntityMixin implements SleepyModeInterface {
+public abstract class ServerPlayerEntityMixin implements ISleepyModeAccess {
 
     @Unique
     private SleepyMode sleepyMode = SleepyMode.INSOMNIA;

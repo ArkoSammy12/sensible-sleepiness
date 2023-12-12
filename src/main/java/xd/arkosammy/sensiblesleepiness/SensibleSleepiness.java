@@ -15,7 +15,7 @@ public class SensibleSleepiness implements DedicatedServerModInitializer {
 	@Override
 	public void onInitializeServer() {
 
-		ServerPlayerEvents.COPY_FROM.register(((oldPlayer, newPlayer, alive) -> ((SleepyModeInterface) newPlayer).sensible_sleepiness$setSleepyMode(((SleepyModeInterface)oldPlayer).sensible_sleepiness$getSleepyMode())));
+		ServerPlayerEvents.COPY_FROM.register(((oldPlayer, newPlayer, alive) -> ((ISleepyModeAccess) newPlayer).sensible_sleepiness$setSleepyMode(((ISleepyModeAccess)oldPlayer).sensible_sleepiness$getSleepyMode())));
 		CommandRegistrationCallback.EVENT.register(SensibleSleepinessCommandManager::registerCommands);
 		LOGGER.info("Thanks to Baconbacon123 for coming up with the name of this mod!");
 

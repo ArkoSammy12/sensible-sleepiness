@@ -8,7 +8,7 @@ import net.minecraft.server.command.CommandManager;
 import net.minecraft.server.command.ServerCommandSource;
 import net.minecraft.text.Text;
 import xd.arkosammy.sensiblesleepiness.SleepyMode;
-import xd.arkosammy.sensiblesleepiness.SleepyModeInterface;
+import xd.arkosammy.sensiblesleepiness.ISleepyModeAccess;
 
 public abstract class SleepyModeCommands {
 
@@ -52,7 +52,7 @@ public abstract class SleepyModeCommands {
 
     private static int setInsomniaCommand(CommandContext<ServerCommandSource> ctx) throws CommandSyntaxException {
 
-        ((SleepyModeInterface)ctx.getSource().getPlayerOrThrow()).sensible_sleepiness$setSleepyMode(SleepyMode.INSOMNIA);
+        ((ISleepyModeAccess)ctx.getSource().getPlayerOrThrow()).sensible_sleepiness$setSleepyMode(SleepyMode.INSOMNIA);
         ctx.getSource().getPlayerOrThrow().sendMessage(Text.literal("Sleepy mode has been set to: " + SleepyMode.INSOMNIA.getDisplayName()));
         return Command.SINGLE_SUCCESS;
 
@@ -60,7 +60,7 @@ public abstract class SleepyModeCommands {
 
     private static int setHypersomniaCommand(CommandContext<ServerCommandSource> ctx) throws CommandSyntaxException {
 
-        ((SleepyModeInterface)ctx.getSource().getPlayerOrThrow()).sensible_sleepiness$setSleepyMode(SleepyMode.HYPERSOMNIA);
+        ((ISleepyModeAccess)ctx.getSource().getPlayerOrThrow()).sensible_sleepiness$setSleepyMode(SleepyMode.HYPERSOMNIA);
         ctx.getSource().getPlayerOrThrow().sendMessage(Text.literal("Sleepy mode has been set to: " + SleepyMode.HYPERSOMNIA.getDisplayName()));
         return Command.SINGLE_SUCCESS;
 
@@ -68,7 +68,7 @@ public abstract class SleepyModeCommands {
 
     private static int setParasomniaCommand(CommandContext<ServerCommandSource> ctx) throws CommandSyntaxException {
 
-        ((SleepyModeInterface)ctx.getSource().getPlayerOrThrow()).sensible_sleepiness$setSleepyMode(SleepyMode.PARASOMNIA);
+        ((ISleepyModeAccess)ctx.getSource().getPlayerOrThrow()).sensible_sleepiness$setSleepyMode(SleepyMode.PARASOMNIA);
         ctx.getSource().getPlayerOrThrow().sendMessage(Text.literal("Sleepy mode has been set to: " + SleepyMode.PARASOMNIA.getDisplayName()));
         return Command.SINGLE_SUCCESS;
 
@@ -76,7 +76,7 @@ public abstract class SleepyModeCommands {
 
     private static int getSleepyModeCommand(CommandContext<ServerCommandSource> ctx) throws CommandSyntaxException {
 
-        ctx.getSource().getPlayerOrThrow().sendMessage(Text.literal("Sleepy mode currently set to: " + ((SleepyModeInterface)ctx.getSource().getPlayerOrThrow()).sensible_sleepiness$getSleepyMode().getDisplayName()));
+        ctx.getSource().getPlayerOrThrow().sendMessage(Text.literal("Sleepy mode currently set to: " + ((ISleepyModeAccess)ctx.getSource().getPlayerOrThrow()).sensible_sleepiness$getSleepyMode().getDisplayName()));
         return Command.SINGLE_SUCCESS;
 
     }

@@ -1,6 +1,6 @@
 package xd.arkosammy.sensiblesleepiness;
 
-public interface SleepyModeInterface {
+public interface ISleepyModeAccess {
 
     SleepyMode sensible_sleepiness$getSleepyMode();
 
