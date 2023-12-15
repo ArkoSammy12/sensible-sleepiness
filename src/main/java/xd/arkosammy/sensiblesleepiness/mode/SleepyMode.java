@@ -21,7 +21,7 @@ public enum SleepyMode {
         return this.displayName;
     }
 
-    public static SleepyMode fromString(String s){
+    public static SleepyMode fromStringIdentifier(String s){
         for(SleepyMode sleepyMode : SleepyMode.values()){
             if(sleepyMode.getIdentifier().equals(s)){
                 return sleepyMode;

@@ -34,7 +34,7 @@ public abstract class ServerPlayerEntityMixin implements ISleepyModeAccess {
     @Inject(method = "readCustomDataFromNbt", at = @At("RETURN"))
     public void readCustomDataFromNbt(NbtCompound tag, CallbackInfo info) {
         String sleepyModeString = tag.getString("sleepyMode");
-        this.sleepyMode = SleepyMode.fromString(sleepyModeString);
+        this.sleepyMode = SleepyMode.fromStringIdentifier(sleepyModeString);
     }
 
 }
