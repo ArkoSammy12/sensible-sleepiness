@@ -28,7 +28,7 @@ public abstract class PhantomSpawnerMixin {
             case PARASOMNIA -> {
 
                 int daysSinceLastSlept = value / 24000;
-                int newProbability = 72000 + (1500 * daysSinceLastSlept - 1);
+                int newProbability = 72000 + (2500 * daysSinceLastSlept - 1);
                 yield newProbability;
 
             }
@@ -40,7 +40,8 @@ public abstract class PhantomSpawnerMixin {
     private int modifyPhantomSpawnAmount(int value, @Local Random random, @Local ServerPlayerEntity serverPlayerEntity) {
         return switch (((ISleepyModeAccess) serverPlayerEntity).sensible_sleepiness$getSleepyMode()) {
 
-            case INSOMNIA, HYPERSOMNIA -> value;
+            case INSOMNIA -> value;
+            case HYPERSOMNIA -> 0;
             case PARASOMNIA -> {
 
                 int j = MathHelper.clamp(serverPlayerEntity.getStatHandler().getStat(Stats.CUSTOM.getOrCreateStat(Stats.TIME_SINCE_REST)), 1, Integer.MAX_VALUE);
@@ -71,7 +72,7 @@ public abstract class PhantomSpawnerMixin {
                 int j = MathHelper.clamp(serverPlayerEntity.getStatHandler().getStat(Stats.CUSTOM.getOrCreateStat(Stats.TIME_SINCE_REST)), 1, Integer.MAX_VALUE);
                 int daysSinceLastSlept = j / 24000;
                 int oldPhantomSize = phantomEntity.getPhantomSize();
-                int newPhantomSize = MathHelper.clamp(oldPhantomSize * daysSinceLastSlept, 1, 20);
+                int newPhantomSize = MathHelper.clamp(oldPhantomSize * daysSinceLastSlept, 1, 15);
                 phantomEntity.setPhantomSize(newPhantomSize);
                 Random random = world.getRandom();
                 int newXpAmount = random.nextBetween(2, 5) * 10;
