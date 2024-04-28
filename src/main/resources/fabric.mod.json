@@ -15,7 +15,7 @@
 	"icon": "assets/sensible-sleepiness/icon.png",
 	"environment": "*",
 	"entrypoints": {
-		"server": [
+		"main": [
 			"xd.arkosammy.sensiblesleepiness.SensibleSleepiness"
 		]
 	},

@@ -2,7 +2,7 @@
   "required": true,
   "package": "xd.arkosammy.sensiblesleepiness.mixin",
   "compatibilityLevel": "JAVA_17",
-  "server": [
+  "mixins": [
     "LivingEntityMixin",
     "MobEntityMixin",
     "PhantomSpawnerMixin",

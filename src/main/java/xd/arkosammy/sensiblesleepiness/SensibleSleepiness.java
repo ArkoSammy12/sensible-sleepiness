@@ -1,7 +1,6 @@
 package xd.arkosammy.sensiblesleepiness;
 
-import net.fabricmc.api.DedicatedServerModInitializer;
-
+import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.command.v2.CommandRegistrationCallback;
 import net.fabricmc.fabric.api.entity.event.v1.ServerPlayerEvents;
 import org.slf4j.Logger;
@@ -9,12 +8,12 @@ import org.slf4j.LoggerFactory;
 import xd.arkosammy.sensiblesleepiness.commands.SensibleSleepinessCommandManager;
 import xd.arkosammy.sensiblesleepiness.mode.ISleepyModeAccess;
 
-public class SensibleSleepiness implements DedicatedServerModInitializer {
+public class SensibleSleepiness implements ModInitializer {
 
     public static final Logger LOGGER = LoggerFactory.getLogger("sensible-sleepiness");
 
 	@Override
-	public void onInitializeServer() {
+	public void onInitialize() {
 
 		ServerPlayerEvents.COPY_FROM.register(((oldPlayer, newPlayer, alive) -> ((ISleepyModeAccess) newPlayer).sensible_sleepiness$setSleepyMode(((ISleepyModeAccess)oldPlayer).sensible_sleepiness$getSleepyMode())));
 		CommandRegistrationCallback.EVENT.register(SensibleSleepinessCommandManager::registerCommands);
