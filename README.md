@@ -24,7 +24,16 @@ To compensate for the added difficulty, Phantoms spawned for players with this m
 You can view your current sleepy mode by simply running
 `/sleepy-mode`.
 
+## Default sleepy mode
 
+As a server admin, you can also select the default sleepy mode for new players by running
+`/gamerule defaultSleepyMode <sleepyMode>`
+
+Where `<sleepyMode>` can be one of the following:
+
+- `Insomnia`
+- `Hypersomnia`
+- `Parasomnia`
 
 ## Support
 

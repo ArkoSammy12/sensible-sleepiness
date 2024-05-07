@@ -29,7 +29,6 @@ public abstract class SensibleSleepinessCommandManager {
     private static int getSleepyModeCommand(CommandContext<ServerCommandSource> ctx) throws CommandSyntaxException {
         ctx.getSource().getPlayerOrThrow().sendMessage(Text.literal("Sleepy mode currently set to: " + ((ISleepyModeAccess)ctx.getSource().getPlayerOrThrow()).sensible_sleepiness$getSleepyMode().getDisplayName()));
         return Command.SINGLE_SUCCESS;
-
     }
 
 }

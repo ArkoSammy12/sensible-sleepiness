@@ -14,8 +14,8 @@ public abstract class PhantomEntityMixin extends LivingEntityMixin {
             return original;
         }
         return switch(((ISleepyModeAccess)serverPlayerEntity).sensible_sleepiness$getSleepyMode()){
-            case INSOMNIA, PARASOMNIA -> original;
-            case HYPERSOMNIA -> false;
+            case Insomnia, Parasomnia -> original;
+            case Hypersomnia -> false;
         };
 
     }

@@ -11,7 +11,7 @@
 		"homepage": "https://github.com/ArkoSammy12",
 		"sources": "https://github.com/ArkoSammy12/sensible-sleepiness"
 	},
-	"license": "LGPL-3.0-only",
+	"license": "MIT",
 	"icon": "assets/sensible-sleepiness/icon.png",
 	"environment": "*",
 	"entrypoints": {
@@ -23,8 +23,8 @@
 		"sensible-sleepiness.mixins.json"
 	],
 	"depends": {
-		"fabricloader": ">=0.15.2",
-		"minecraft": ">=1.20",
+		"fabricloader": ">=0.15.11",
+		"minecraft": [">=1.20", "<1.20.5"],
 		"java": ">=17",
 		"fabric-api": "*"
 	},

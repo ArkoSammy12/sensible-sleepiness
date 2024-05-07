@@ -42,24 +42,23 @@ public abstract class SleepyModeCommands {
     }
 
     private static int setInsomniaCommand(CommandContext<ServerCommandSource> ctx) throws CommandSyntaxException {
-        ((ISleepyModeAccess)ctx.getSource().getPlayerOrThrow()).sensible_sleepiness$setSleepyMode(SleepyMode.INSOMNIA);
-        ctx.getSource().getPlayerOrThrow().sendMessage(Text.literal("Sleepy mode has been set to: " + SleepyMode.INSOMNIA.getDisplayName()));
+        ((ISleepyModeAccess)ctx.getSource().getPlayerOrThrow()).sensible_sleepiness$setSleepyMode(SleepyMode.Insomnia);
+        ctx.getSource().getPlayerOrThrow().sendMessage(Text.literal("Sleepy mode has been set to: " + SleepyMode.Insomnia.getDisplayName()));
         return Command.SINGLE_SUCCESS;
 
     }
 
     private static int setHypersomniaCommand(CommandContext<ServerCommandSource> ctx) throws CommandSyntaxException {
-        ((ISleepyModeAccess)ctx.getSource().getPlayerOrThrow()).sensible_sleepiness$setSleepyMode(SleepyMode.HYPERSOMNIA);
-        ctx.getSource().getPlayerOrThrow().sendMessage(Text.literal("Sleepy mode has been set to: " + SleepyMode.HYPERSOMNIA.getDisplayName()));
+        ((ISleepyModeAccess)ctx.getSource().getPlayerOrThrow()).sensible_sleepiness$setSleepyMode(SleepyMode.Hypersomnia);
+        ctx.getSource().getPlayerOrThrow().sendMessage(Text.literal("Sleepy mode has been set to: " + SleepyMode.Hypersomnia.getDisplayName()));
         return Command.SINGLE_SUCCESS;
 
     }
 
     private static int setParasomniaCommand(CommandContext<ServerCommandSource> ctx) throws CommandSyntaxException {
-        ((ISleepyModeAccess)ctx.getSource().getPlayerOrThrow()).sensible_sleepiness$setSleepyMode(SleepyMode.PARASOMNIA);
-        ctx.getSource().getPlayerOrThrow().sendMessage(Text.literal("Sleepy mode has been set to: " + SleepyMode.PARASOMNIA.getDisplayName()));
+        ((ISleepyModeAccess)ctx.getSource().getPlayerOrThrow()).sensible_sleepiness$setSleepyMode(SleepyMode.Parasomnia);
+        ctx.getSource().getPlayerOrThrow().sendMessage(Text.literal("Sleepy mode has been set to: " + SleepyMode.Parasomnia.getDisplayName()));
         return Command.SINGLE_SUCCESS;
-
     }
 
 }

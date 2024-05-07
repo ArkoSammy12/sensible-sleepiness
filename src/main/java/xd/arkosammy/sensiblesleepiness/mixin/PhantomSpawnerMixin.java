@@ -23,9 +23,9 @@ public abstract class PhantomSpawnerMixin {
     private int modifySpawnProbabilityBound(int value, @Local ServerPlayerEntity serverPlayerEntity){
         return switch(((ISleepyModeAccess)serverPlayerEntity).sensible_sleepiness$getSleepyMode()){
 
-            case INSOMNIA -> value;
-            case HYPERSOMNIA -> 1;
-            case PARASOMNIA -> {
+            case Insomnia -> value;
+            case Hypersomnia -> 1;
+            case Parasomnia -> {
 
                 int daysSinceLastSlept = value / 24000;
                 int newProbability = 72000 + (2500 * daysSinceLastSlept - 1);
@@ -40,9 +40,9 @@ public abstract class PhantomSpawnerMixin {
     private int modifyPhantomSpawnAmount(int value, @Local Random random, @Local ServerPlayerEntity serverPlayerEntity) {
         return switch (((ISleepyModeAccess) serverPlayerEntity).sensible_sleepiness$getSleepyMode()) {
 
-            case INSOMNIA -> value;
-            case HYPERSOMNIA -> 0;
-            case PARASOMNIA -> {
+            case Insomnia -> value;
+            case Hypersomnia -> 0;
+            case Parasomnia -> {
 
                 int j = MathHelper.clamp(serverPlayerEntity.getStatHandler().getStat(Stats.CUSTOM.getOrCreateStat(Stats.TIME_SINCE_REST)), 1, Integer.MAX_VALUE);
                 int daysSinceLastSlept = j / 24000;
@@ -66,8 +66,8 @@ public abstract class PhantomSpawnerMixin {
     private void modifyPhantomOnSpawn(ServerWorld world, boolean spawnMonsters, boolean spawnAnimals, CallbackInfoReturnable<Integer> cir, @Local PhantomEntity phantomEntity, @Local ServerPlayerEntity serverPlayerEntity){
         switch(((ISleepyModeAccess)serverPlayerEntity).sensible_sleepiness$getSleepyMode()){
 
-            case INSOMNIA, HYPERSOMNIA -> {}
-            case PARASOMNIA -> {
+            case Insomnia, Hypersomnia -> {}
+            case Parasomnia -> {
 
                 int j = MathHelper.clamp(serverPlayerEntity.getStatHandler().getStat(Stats.CUSTOM.getOrCreateStat(Stats.TIME_SINCE_REST)), 1, Integer.MAX_VALUE);
                 int daysSinceLastSlept = j / 24000;

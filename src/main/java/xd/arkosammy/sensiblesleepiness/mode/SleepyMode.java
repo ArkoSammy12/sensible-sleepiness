@@ -1,9 +1,12 @@
 package xd.arkosammy.sensiblesleepiness.mode;
 
+import java.util.Optional;
+
 public enum SleepyMode {
-    PARASOMNIA("sensible-sleepiness:parasomnia", "Parasomnia"),
-    HYPERSOMNIA("sensible-sleepiness:hypersomnia", "Hypersomnia"),
-    INSOMNIA("sensible-sleepiness:insomnia", "Insomnia");
+    // In PascalCase so they look nice in the gamerule
+    Parasomnia("sensible-sleepiness:parasomnia", "Parasomnia"),
+    Hypersomnia("sensible-sleepiness:hypersomnia", "Hypersomnia"),
+    Insomnia("sensible-sleepiness:insomnia", "Insomnia");
 
     private final String identifier;
     private final String displayName;
@@ -21,13 +24,13 @@ public enum SleepyMode {
         return this.displayName;
     }
 
-    public static SleepyMode fromStringIdentifier(String s){
+    public static Optional<SleepyMode> fromStringIdentifier(String s){
         for(SleepyMode sleepyMode : SleepyMode.values()){
             if(sleepyMode.getIdentifier().equals(s)){
-                return sleepyMode;
+                return Optional.of(sleepyMode);
             }
         }
-        return SleepyMode.INSOMNIA;
+        return Optional.empty();
     }
 
 }
