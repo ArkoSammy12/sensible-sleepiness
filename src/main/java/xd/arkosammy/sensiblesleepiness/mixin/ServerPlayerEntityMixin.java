@@ -26,7 +26,7 @@ public abstract class ServerPlayerEntityMixin implements ISleepyModeAccess {
         return this.sleepyMode;
     }
 
-    @Inject(method = "<init>", at = @At("RETURN"))
+    @Inject(method = "<init>*", at = @At("RETURN"), remap = false)
     private void onServerPlayerEntity(CallbackInfo ci) {
         this.sleepyMode = this.getServerWorld().getGameRules().get(SensibleSleepiness.DEFAULT_SLEEPY_MODE_RULE).get();
     }
